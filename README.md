@@ -40,5 +40,12 @@ sensiolabs:
   script:
     - local-php-security-checker composer.lock
   dependencies: []
+  
+deploy:
+  stage: deploy
+  script:
+    - ssh -i ~/.ssh/id_rsa root@$IP_PUBLIC_SERVER "bash /opt/${DOMAIN}.sh"
+  only:
+    - develop
 
 ```
